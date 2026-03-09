@@ -16,9 +16,20 @@ body.dark-mode {
 
 <h1 id="heading">Welcome to My Website</h1>
 
-<button onclick="changeColor()">Dark Mode</button>
+<button id="btn">Dark Mode</button>
+
 
 <script>
+
+const btn = document.getElementById('btn');
+    btn.addEventListener("mouseenter" ,function(){
+        conso.log('mouse on the bnt')
+    })   
+
+    btn.onclick = function(){
+        changeColor();
+    }
+
 function changeColor() {
   document.body.classList.toggle("dark-mode");
   document.getElementById("heading").classList.toggle("white-text");
