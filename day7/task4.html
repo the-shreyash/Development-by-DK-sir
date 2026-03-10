@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>Form Example</h2>
+
+    <form id="form">
+
+        <!-- <input type="text" id="name" placeholder="Enter name">
+
+        <input type="email" id="email" placeholder="Enter email"> -->
+        <input type="password" id="pass" placeholder="enter password">
+
+        <button type="submit">Submit</button>
+        <p id="msg">msg</p>
+
+    </form>
+</body>
+
+<script>
+    const form = document.querySelector("#form")
+    const nameInput = document.querySelector("#name")
+    const emailInput = document.querySelector("#email")
+    const pass = document.querySelector("#pass")
+    const msg = document.querySelector("#msg");
+
+    const password  = pass.value;
+    const oneChar = /[a-zA-Z]/.test(password);
+    
+    
+
+
+    
+    form.addEventListener("submit", function (e) {
+    
+        if(password.length >=8 && password.length<=10 ){
+            msg.innerText = "password must be at least 8 characters long"
+            msg.style.color = "red"
+
+        }
+         else if(!oneChar){
+            msg.textContent = "password must contain at least one character"
+            msg.style.color = "red"
+            }
+        else{
+            msg.textContent = "password is valid"
+            msg.style.color = "green"
+        }
+
+    })
+</script>
+
+</html>
