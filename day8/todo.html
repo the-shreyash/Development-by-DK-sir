@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>todo list</title>
+    <style>
+    
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body{
+    background: linear-gradient(135deg,#667eea,#764ba2);
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+/* main container */
+.header{
+    background:white;
+    padding:25px;
+    border-radius:10px;
+    width:350px;
+    box-shadow:0 8px 20px rgba(0,0,0,0.2);
+    text-align:center;
+}
+
+/* heading */
+.header h2{
+    margin-bottom:15px;
+}
+
+/* input */
+#input{
+    width:100%;
+    padding:10px;
+    border:1px solid #ccc;
+    border-radius:5px;
+    margin-bottom:10px;
+    outline:none;
+}
+
+/* add button */
+.addBtn{
+    display:inline-block;
+    background:#4CAF50;
+    color:white;
+    padding:8px 16px;
+    border-radius:5px;
+    cursor:pointer;
+    margin-right:10px;
+    transition:0.3s;
+}
+
+.addBtn:hover{
+    background:#45a049;
+}
+
+/* delete button */
+#delBtn{
+    padding:8px 16px;
+    border:none;
+    background:#ff4d4d;
+    color:white;
+    border-radius:5px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+#delBtn:hover{
+    background:#e60000;
+}
+
+/* list */
+ul{
+    list-style:none;
+    margin-top:20px;
+}
+
+/* list items */
+ul li{
+    background:white;
+    padding:12px;
+    margin:8px 0;
+    border-radius:5px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+/* hover effect */
+ul li:hover{
+    background:#f1f1f1;
+}
+
+/* completed task */
+ul li[style*="line-through"]{
+    color:gray;
+}
+</style>
+
+
+
+</head>
+<body>
+    <div id="myDiv" class="header" >
+        <h2>My to do list </h2>
+        <input type="text" id="input" placeholder="title..">
+        <span  id="addBtn" class="addBtn">ADD</span>
+        <button id="delBtn">delete task</button>
+    </div>
+
+    <ul id="Ul" >
+        <li>DSA Practice</li>
+        <li type="checkbox">Internet bill</li>
+        <li>Shopping</li>
+        <li>Hit Gym</li>
+        <li>Learn Js</li>
+    </ul>
+</body>
+    <script>
+       
+    
+        const list = document.querySelector("#Ul")
+        list.addEventListener("click", function (e) {
+
+            if (e.target.tagName === "LI") {
+
+                e.target.style.textDecoration = "line-through"
+
+            }
+
+        })
+
+
+        let addbtn = document.querySelector("#addBtn");
+        addbtn.addEventListener("click",function(){
+            const input = document.querySelector("#input")
+            const value = input.value
+
+            if (value) {
+                const li = document.createElement("li")
+                li.innerText = value
+                list.appendChild(li)
+                input.value = ""
+            }
+        });
+
+        const delbtn = document.querySelector("#delBtn");
+        delbtn.addEventListener("click",function(){
+            const li = document.querySelectorAll("ul li");
+            li.forEach(function(item){
+                if(item.style.textDecoration === "line-through"){
+                    item.remove();
+                }
+            
+            }
+            )
+            
+        })
+
+    </script>
+
+</html>

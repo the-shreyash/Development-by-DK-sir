@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Website</title>
+<link rel="stylesheet" href="style.css">
+<style>
+    *{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial;
+}
+
+body{
+     background-color: white;
+    color: black;
+    transition: 0.3s;
+}
+
+.dark {
+  background-color: #121212;
+  color: white;
+}
+
+
+/* HERO */
+
+.hero{
+    height:100vh;
+    background:#0f172a;
+    color:white;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+}
+
+.hero button{
+    margin-top:20px;
+    padding:12px 25px;
+    border:none;
+    background:#38bdf8;
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+    border-radius:6px;
+}
+
+
+/* ABOUT */
+
+.about{
+    padding:80px 20px;
+    text-align:center;
+}
+
+.about p{
+    max-width:600px;
+    margin:auto;
+    margin-top:20px;
+}
+
+
+/* TESTIMONIAL */
+
+.testimonial{
+    background:#f1f5f9;
+    padding:80px 20px;
+    text-align:center;
+}
+
+.card{
+    background:white;
+    padding:20px;
+    margin:20px auto;
+    max-width:400px;
+    border-radius:10px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+}
+
+
+/* FOOTER */
+
+footer{
+    background:#0f172a;
+    color:white;
+    text-align:center;
+    padding:20px;
+}
+</style>
+</head>
+
+<body>
+
+    <button id="themeToggle">Toggle Dark Mode</button>
+
+    <h1>Hello Students</h1>
+    <p>This is a dark mode demo.</p>
+
+
+<!-- HERO SECTION -->
+<section class="hero">
+    <h1>Welcome to Our Website</h1>
+    <p>We help you learn and grow with the best resources.</p>
+    <button>Get Started</button>
+</section>
+
+
+<!-- ABOUT SECTION -->
+<section class="about">
+    <h2>About Us</h2>
+    <p>
+        We are passionate about providing quality education and tools
+        to help students and developers improve their skills.
+    </p>
+</section>
+
+
+<!-- TESTIMONIAL SECTION -->
+<section class="testimonial">
+    <h2>What People Say</h2>
+
+    <div class="card">
+        <p>"This platform helped me learn programming faster!"</p>
+        <h4>- YASH</h4>
+    </div>
+
+    <div class="card">
+        <p>"Amazing resources and very easy to follow."</p>
+        <h4>- SHREYASH</h4>
+    </div>
+
+</section>
+
+
+<!-- FOOTER -->
+<footer>
+    <p>© 2026 My Website | All Rights Reserved</p>
+</footer>
+
+</body>
+
+<script>
+    const toggleBtn = document.querySelector("#themeToggle")
+
+    const savedTheme = localStorage.getItem("theme")
+
+if (savedTheme === "dark") {
+    document.body.classList.add("dark")
+}
+
+toggleBtn.addEventListener("click", function () {
+
+    document.body.classList.toggle("dark")
+
+    if (document.body.classList.contains("dark")) {
+        localStorage.setItem("theme", "dark")
+    } else {
+        localStorage.setItem("theme", "light")
+    }
+
+})
+</script>
+</html>
