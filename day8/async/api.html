@@ -8,9 +8,7 @@
 <body>
     <button id="loadBtn">Load Users</button>
     <ul id="Ul">
-        <li id="il">
-
-        </li>
+        
     </ul>
 </body>
 
@@ -31,10 +29,12 @@ async function loadUsers(){
 
     console.log(data)
 
-    data.forEach(function(user){
+    data.forEach(function(a){
         const li =document.createElement("li")
-        li.textContent = user.name;
+        li.innerText = a.name+"-"+ a.username+ " - " + a.email+ " - " +a.website ;
+        //li.innerText += "-"+ a.username+ " - " + a.email;
         list.appendChild(li);
+
 
     })
 
